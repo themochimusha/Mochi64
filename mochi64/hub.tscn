@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b8sj5v322p5q0"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qlmhu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_l10or"]
+
+[node name="hub" type="Node3D" unique_id=683311448]
+
+[node name="home" type="Node3D" parent="." unique_id=506681951]
+
+[node name="ceiling" type="MeshInstance3D" parent="home" unique_id=83720612]
+transform = Transform3D(16, 0, 0, 0, -1, 1.3987644e-06, 0, -8.742278e-08, -16, 0, 32, 0)
+mesh = SubResource("PlaneMesh_qlmhu")
+
+[node name="floor" type="MeshInstance3D" parent="home" unique_id=2052854955]
+transform = Transform3D(16, 0, 0, 0, 1, 0, 0, 0, 16, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qlmhu")
+
+[node name="wall_west" type="MeshInstance3D" parent="home" unique_id=1327720236]
+transform = Transform3D(-6.993822e-07, 1, 0, -16, -4.371139e-08, 0, 0, 0, 16, -16, 16, 0)
+mesh = SubResource("PlaneMesh_l10or")
+
+[node name="wall_east" type="MeshInstance3D" parent="home" unique_id=1175165175]
+transform = Transform3D(-6.993822e-07, -1, 0, 16, -4.371139e-08, 0, 0, 0, 16, 16, 16, 0)
+mesh = SubResource("PlaneMesh_l10or")
+
+[node name="wall_north" type="MeshInstance3D" parent="home" unique_id=1713293935]
+transform = Transform3D(16, 0, 0, 0, -4.371139e-08, -16, 0, 1, -6.993822e-07, 0, 16, -16)
+mesh = SubResource("PlaneMesh_l10or")
+
+[node name="wall_south" type="MeshInstance3D" parent="home" unique_id=1914002296]
+transform = Transform3D(16, 0, 0, 0, -4.371139e-08, 16, 0, -1, -6.993822e-07, 0, 16, 16)
+mesh = SubResource("PlaneMesh_l10or")
+
+[node name="yard" type="Node3D" parent="." unique_id=1177740335]
+visible = false
+
+[node name="up" type="MeshInstance3D" parent="yard" unique_id=1173583301]
+transform = Transform3D(64, 0, 0, 0, -1, 9.663731e-06, 0, -1.509958e-07, -64, 0, 80, 0)
+mesh = SubResource("PlaneMesh_qlmhu")
+
+[node name="down" type="MeshInstance3D" parent="yard" unique_id=76802136]
+transform = Transform3D(64, 0, 0, 0, 1, 0, 0, 0, 64, 0, -48, 0)
+mesh = SubResource("PlaneMesh_qlmhu")
+
+[node name="west" type="MeshInstance3D" parent="yard" unique_id=812975218]
+transform = Transform3D(-2.7975289e-06, 1, 0, -64, -4.371139e-08, 0, 0, 0, 64, -64, 16, 0)
+mesh = SubResource("PlaneMesh_l10or")
+
+[node name="east" type="MeshInstance3D" parent="yard" unique_id=1271238192]
+transform = Transform3D(-2.7975289e-06, -1, 0, 64, -4.371139e-08, 0, 0, 0, 64, 64, 16, 0)
+mesh = SubResource("PlaneMesh_l10or")
+
+[node name="north" type="MeshInstance3D" parent="yard" unique_id=783757869]
+transform = Transform3D(64, 0, 0, 0, -4.371139e-08, -64, 0, 1, -2.7975289e-06, 0, 16, -64)
+mesh = SubResource("PlaneMesh_l10or")
+
+[node name="south" type="MeshInstance3D" parent="yard" unique_id=469066606]
+transform = Transform3D(64, 0, 0, 0, -4.371139e-08, 64, 0, -1, -2.7975289e-06, 0, 16, 64)
+mesh = SubResource("PlaneMesh_l10or")
