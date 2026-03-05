@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxdvmd5dsy8qw" path="res://assets/models/interactive/system_settings_model.gltf" id="3_6eldl"]
 [ext_resource type="PackedScene" uid="uid://dyy8n3n2lv1tr" path="res://assets/models/interactive/video_settings_model.gltf" id="4_8xurw"]
 [ext_resource type="PackedScene" uid="uid://elbfuaip401p" path="res://assets/models/interactive/games_launcher_model.gltf" id="5_n8ovw"]
+[ext_resource type="PackedScene" uid="uid://c8o2g1swaiqm5" path="res://assets/models/interactive/audio_settings_model.gltf" id="6_8xurw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwmoi"]
 albedo_texture = ExtResource("1_ysrp0")
@@ -61,5 +62,14 @@ transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 67.4522, 375.67487)
 
 [node name="games_launcher_model" parent="home/games_launcher" unique_id=686626353 instance=ExtResource("5_n8ovw")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="audio_settings" type="MeshInstance3D" parent="home" unique_id=1593021193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9925, 0, -16.643646)
+
+[node name="audio_settings_model" parent="home/audio_settings" unique_id=1288190330 instance=ExtResource("6_8xurw")]
+transform = Transform3D(143.73042, 0, 42.913464, 0, 149.99998, 0, -42.913464, 0, 143.73042, -99.00369, 0, 418.98212)
+
+[node name="audio_settings_model2" parent="home/audio_settings" unique_id=1986783144 instance=ExtResource("6_8xurw")]
+transform = Transform3D(145.91577, 0, -34.76473, 0, 149.99998, 0, 34.76473, 0, 145.91577, 164.72903, 0, 418.98212)
 
 [node name="yard" type="Node3D" parent="." unique_id=1177740335]
