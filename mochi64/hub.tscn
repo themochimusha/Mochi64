@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8sj5v322p5q0"]
 
-[ext_resource type="Texture2D" uid="uid://dd40pqkjk3ch5" path="res://assets/textures/home/home_floor_00.png" id="1_ysrp0"]
+[ext_resource type="Texture2D" uid="uid://dfchvusgdc0ak" path="res://assets/textures/home/home_floor_01.png" id="1_n8ovw"]
 [ext_resource type="Texture2D" uid="uid://c5orbtn81kqii" path="res://assets/textures/home/home_wall_00.png" id="2_6eldl"]
 [ext_resource type="PackedScene" uid="uid://dxdvmd5dsy8qw" path="res://assets/models/interactive/system_settings_model.gltf" id="3_6eldl"]
 [ext_resource type="PackedScene" uid="uid://dyy8n3n2lv1tr" path="res://assets/models/interactive/video_settings_model.gltf" id="4_8xurw"]
@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bw5go3hwi3kfd" path="res://assets/models/sword_1.gltf" id="7_n8ovw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwmoi"]
-albedo_texture = ExtResource("1_ysrp0")
+albedo_texture = ExtResource("1_n8ovw")
 uv1_scale = Vector3(5, 5, 5)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ace7m"]
@@ -19,6 +19,11 @@ albedo_texture = ExtResource("2_6eldl")
 uv1_scale = Vector3(2, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h1qs5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ace7m"]
+albedo_color = Color(1, 0.7294118, 0.5254902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_trs84"]
 
 [node name="hub" type="Node3D" unique_id=683311448]
 
@@ -30,7 +35,7 @@ material_override = SubResource("StandardMaterial3D_nwmoi")
 mesh = SubResource("PlaneMesh_ace7m")
 
 [node name="wall_w" type="MeshInstance3D" parent="home" unique_id=1072163913]
-transform = Transform3D(-2.238023e-05, 1, 0, 2.238023e-05, 1.9106855e-15, -256, -512, -4.371139e-08, -1.1190115e-05, -512, 256, 0)
+transform = Transform3D(-2.238023e-05, 1, 0, 2.238023e-05, 1.9106855e-15, -256, -512, -4.371139e-08, -1.1190115e-05, -509.193, 253.06197, 0.07836914)
 material_override = SubResource("StandardMaterial3D_trs84")
 mesh = SubResource("PlaneMesh_h1qs5")
 
@@ -57,25 +62,47 @@ transform = Transform3D(43.479156, 0, -61.11107, 0, 75, 0, 61.11107, 0, 43.47915
 [node name="video_settings" type="MeshInstance3D" parent="home" unique_id=1108264036]
 
 [node name="video_settings_model" parent="home/video_settings" unique_id=649453656 instance=ExtResource("4_8xurw")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 67.4522, 375.67487)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 150.78539, 375.67487)
 
 [node name="games_launcher" type="MeshInstance3D" parent="home" unique_id=128568275]
 
 [node name="games_launcher_model" parent="home/games_launcher" unique_id=686626353 instance=ExtResource("5_n8ovw")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 281.51447)
 
 [node name="audio_settings" type="MeshInstance3D" parent="home" unique_id=1593021193]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9925, 0, -16.643646)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9925, 0, -45.045387)
 
 [node name="audio_settings_model" parent="home/audio_settings" unique_id=1288190330 instance=ExtResource("6_8xurw")]
-transform = Transform3D(143.73042, 0, 42.913464, 0, 149.99998, 0, -42.913464, 0, 143.73042, -99.00369, 0, 418.98212)
+transform = Transform3D(143.73042, 0, 42.913464, 0, 149.99998, 0, -42.913464, 0, 143.73042, -22.347916, 0, 418.98212)
 
 [node name="audio_settings_model2" parent="home/audio_settings" unique_id=1986783144 instance=ExtResource("6_8xurw")]
-transform = Transform3D(145.91577, 0, -34.76473, 0, 149.99998, 0, 34.76473, 0, 145.91577, 164.72903, 0, 418.98212)
+transform = Transform3D(145.91577, 0, -34.76473, 0, 149.99998, 0, 34.76473, 0, 145.91577, 77.090706, 0, 418.98212)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="home" unique_id=956951331]
+[node name="sword" type="MeshInstance3D" parent="home" unique_id=956951331]
 
-[node name="blockbench_export" parent="home/MeshInstance3D" unique_id=38246256 instance=ExtResource("7_n8ovw")]
+[node name="sword_model" parent="home/sword" unique_id=38246256 instance=ExtResource("7_n8ovw")]
 transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -361.28967, 246.703, 508.9385)
 
+[node name="rug" type="MeshInstance3D" parent="home" unique_id=1345806889]
+transform = Transform3D(255.02585, 0, -22.311869, 0, 256, 0, 22.311869, 0, 255.02585, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_ace7m")
+mesh = SubResource("PlaneMesh_trs84")
+
 [node name="yard" type="Node3D" parent="." unique_id=1177740335]
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=988790373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7286377, 546.5313, -0.4066162)
+light_energy = 3.059
+light_indirect_energy = 2.109
+light_volumetric_fog_energy = 0.208
+light_size = 0.297
+light_specular = 0.817
+shadow_enabled = true
+shadow_bias = 3.07
+shadow_normal_bias = 3.772
+omni_range = 655.493
+omni_attenuation = 0.087
+omni_shadow_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1347413747]
+transform = Transform3D(-0.9999989, 0, 0.0014661252, 0, 1, 0, -0.0014661252, 0, -0.9999989, 0, 109.962494, 0)
