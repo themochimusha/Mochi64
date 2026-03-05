@@ -1,0 +1,61 @@
+Importing Blockbench models in Godot
+
+# export model from blockbench
+
+    * while not necessary, its probably useful to have the following plug-ins installed (acquired from 'File > Plug-ins' within blockbench):
+
+        ~ glTF Importer: Allows importing of glTF files.
+
+    * select 'File > Export' and choose one of the following: 
+
+        ~ Export glTF Model (.gltf) - prefer this one over the latter
+        
+            - In the export pop-up window, you can leave the default values:              
+                1. Encoding:                    ASCII (glTF)
+                2. Model Export Scale:          16 (could potentially raise this to make up for Blockbench/Godot UOM differences)
+                3. Embed Textures:              TRUE
+                4. Export Groups as Armature:   FALSE
+                5. Export Animations:           TRUE  
+
+        ~ Export OBJ Model (.obj)
+
+    * save file to a location you can easily come back to later on, or directly into the godot project folder if you have a project already setup.
+
+
+# import model to godot project / scene (choose one)
+
+    * open your godot project or your computer's file explorer and navigate to your godot project directory
+
+    * open your computer's file explorer and navigate to your exported model directory
+
+    * drag and drop your exported model from its file explorer window into your godot project browser in godot, or the desired folder within your godot project directory from the file explorer window
+
+    !!! NOTE: if you dont see your model after following these next steps, first try to scale it up via 'Transform' as bbmodels unit of measurement (UOM) is smaller than Godot's UOM.
+
+    * import as .obj
+        
+        ~ In Scene Panel
+            1. Select node to receive model
+            2. Right-click and select, 'Add Child Node' from the context menu
+            3. Search 'Mesh' in search bar and/or Select 'MeshInstance3D'
+            4. Rename created MeshInstance3D node as desired
+            5. Select the new MeshInstance3D in Scene Panel
+        
+        ~ In Inspector Panel
+            1. Drag and drop .obj model from the project browser panel into the 'Mesh' field of Inspector Panel
+            2. Select 'Geometry' in the Inspector Panel to expand subfields.
+            3. Drag and drop .png texture for this model from the project browser panel in the 'Geometry > Material Override' field of the Inspector Panel
+
+    * import as .gltf
+        
+        ~ In Scene Panel
+            1. Select node to receive model
+            2. Right-click and select 'Add Child Node' from the context menu; rename new child node as desired
+            3. Select new child node.
+            4. Right-click and select 'Instatiate Child Scene' from the context menu
+            5. In the scene seletor pop-up window, select the exported .gltf model; rename new scene instance as desired
+            6. Select new child scene
+            7. Right-click and check/tick/make-TRUE, 'Editable Children' toggle (checkbox)
+            
+            
+
