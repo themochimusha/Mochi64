@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dyy8n3n2lv1tr"
-path="res://.godot/imported/video_settings_model.gltf-8fd758dc44b21acceb1538fc6e9a2591.scn"
+uid="uid://elbfuaip401p"
+path="res://.godot/imported/games_launcher_model.gltf-94401d6d100069b573356ebafbbffd43.scn"
 
 [deps]
 
-source_file="res://assets/models/interactive/video_settings_model.gltf"
-dest_files=["res://.godot/imported/video_settings_model.gltf-8fd758dc44b21acceb1538fc6e9a2591.scn"]
+source_file="res://assets/models/interactive/games_launcher/games_launcher_model.gltf"
+dest_files=["res://.godot/imported/games_launcher_model.gltf-94401d6d100069b573356ebafbbffd43.scn"]
 
 [params]
 

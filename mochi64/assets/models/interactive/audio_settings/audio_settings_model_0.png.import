@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv14l1uoo8e20"
-path.s3tc="res://.godot/imported/system_settings_model_0.png-cd8e6c694dc026a1a1fd6d458dfe2220.s3tc.ctex"
+uid="uid://bptbpjxkbdo5l"
+path.s3tc="res://.godot/imported/audio_settings_model_0.png-f49ca48912865ae26faa723c2924d252.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "a72a01916a8c4308e1af71983fbd3a91"
+"md5": "4c602459fd1d064a01ff1dd63f894918"
 }
 
 [deps]
 
-source_file="res://assets/models/interactive/system_settings_model_0.png"
-dest_files=["res://.godot/imported/system_settings_model_0.png-cd8e6c694dc026a1a1fd6d458dfe2220.s3tc.ctex"]
+source_file="res://assets/models/interactive/audio_settings/audio_settings_model_0.png"
+dest_files=["res://.godot/imported/audio_settings_model_0.png-f49ca48912865ae26faa723c2924d252.s3tc.ctex"]
 
 [params]
 
