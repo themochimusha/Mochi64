@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://b8sj5v322p5q0"]
 
-[ext_resource type="Texture2D" uid="uid://dfchvusgdc0ak" path="res://assets/textures/home/home_floor_01.png" id="1_n8ovw"]
 [ext_resource type="Texture2D" uid="uid://c5orbtn81kqii" path="res://assets/textures/home/home_wall_00.png" id="2_6eldl"]
-[ext_resource type="PackedScene" uid="uid://dyy8n3n2lv1tr" path="res://assets/models/interactive/video_settings/video_settings_model.gltf" id="4_8xurw"]
-[ext_resource type="PackedScene" uid="uid://elbfuaip401p" path="res://assets/models/interactive/games_launcher/games_launcher_model.gltf" id="5_n8ovw"]
-[ext_resource type="PackedScene" uid="uid://c8o2g1swaiqm5" path="res://assets/models/interactive/audio_settings/audio_settings_model.gltf" id="6_8xurw"]
-[ext_resource type="PackedScene" uid="uid://bw5go3hwi3kfd" path="res://assets/models/sword_1.gltf" id="7_n8ovw"]
-[ext_resource type="PackedScene" uid="uid://djutyuh5w5poh" path="res://assets/models/interactive/system_settings/program_settings_model.gltf" id="7_nwmoi"]
+[ext_resource type="Texture2D" uid="uid://c5sk852lmkout" path="res://assets/textures/home/home_floor_03.png" id="2_nwmoi"]
 [ext_resource type="Script" uid="uid://b7c7kn1lkhrly" path="res://scripts/Player.cs" id="8_nwmoi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nwmoi"]
@@ -22,21 +17,29 @@ sky = SubResource("Sky_ace7m")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwmoi"]
-albedo_texture = ExtResource("1_n8ovw")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trs84"]
+albedo_texture = ExtResource("2_nwmoi")
+uv1_scale = Vector3(10, 3, 8)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ace7m"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trs84"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1qs5"]
 albedo_texture = ExtResource("2_6eldl")
-uv1_scale = Vector3(2, 1, 1)
+uv1_scale = Vector3(1.5, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_h1qs5"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ace7m"]
-albedo_color = Color(1, 0.7294118, 0.5254902, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0is01"]
+albedo_texture = ExtResource("2_6eldl")
+uv1_scale = Vector3(1.5, 1, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_trs84"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2sye"]
+albedo_texture = ExtResource("2_6eldl")
+uv1_scale = Vector3(1.5, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgunc"]
+albedo_texture = ExtResource("2_6eldl")
+uv1_scale = Vector3(1.5, 1, 1)
 
 [node name="hub" type="Node3D" unique_id=683311448]
 
@@ -50,62 +53,28 @@ script = ExtResource("8_nwmoi")
 [node name="home" type="Node3D" parent="." unique_id=506681951]
 
 [node name="floor" type="MeshInstance3D" parent="home" unique_id=1700672530]
-transform = Transform3D(512, 0, 0, 0, 1, 0, 0, 0, 512, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_nwmoi")
+transform = Transform3D(512, 0, 0, 0, 1, 0, 0, 0, 512, 2.5480347, 0, 0.037979126)
+material_override = SubResource("StandardMaterial3D_trs84")
 mesh = SubResource("PlaneMesh_ace7m")
 
 [node name="wall_w" type="MeshInstance3D" parent="home" unique_id=1072163913]
 transform = Transform3D(-2.238023e-05, 1, 0, 2.238023e-05, 1.9106855e-15, -256, -512, -4.371139e-08, -1.1190115e-05, -509.193, 256, 0.078)
-material_override = SubResource("StandardMaterial3D_trs84")
+material_override = SubResource("StandardMaterial3D_h1qs5")
 mesh = SubResource("PlaneMesh_h1qs5")
 
 [node name="wall_n" type="MeshInstance3D" parent="home" unique_id=1685170892]
 transform = Transform3D(512, 0, 0, 0, -4.371139e-08, -256, 0, 1, -1.1190115e-05, 0, 256, -512)
-material_override = SubResource("StandardMaterial3D_trs84")
+material_override = SubResource("StandardMaterial3D_0is01")
 mesh = SubResource("PlaneMesh_h1qs5")
 
 [node name="wall_e" type="MeshInstance3D" parent="home" unique_id=1632325214]
 transform = Transform3D(-2.238023e-05, -1, 1.1190115e-05, 0, -4.371139e-08, -256, 512, -4.371139e-08, 4.891355e-13, 512, 256, 0)
-material_override = SubResource("StandardMaterial3D_trs84")
+material_override = SubResource("StandardMaterial3D_c2sye")
 mesh = SubResource("PlaneMesh_h1qs5")
 
 [node name="wall_s" type="MeshInstance3D" parent="home" unique_id=371800974]
 transform = Transform3D(-512, 8.742278e-08, 0, 1.956542e-12, 4.371139e-08, -256, -4.476046e-05, -1, -1.1190115e-05, 0, 256, 512)
-material_override = SubResource("StandardMaterial3D_trs84")
+material_override = SubResource("StandardMaterial3D_vgunc")
 mesh = SubResource("PlaneMesh_h1qs5")
-
-[node name="audio_settings" type="MeshInstance3D" parent="home" unique_id=1593021193]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.9925, 0, -45.045387)
-
-[node name="audio_settings_model" parent="home/audio_settings" unique_id=1288190330 instance=ExtResource("6_8xurw")]
-transform = Transform3D(143.73042, 0, 42.913464, 0, 149.99998, 0, -42.913464, 0, 143.73042, -22.347916, 0, 418.98212)
-
-[node name="audio_settings_model2" parent="home/audio_settings" unique_id=1986783144 instance=ExtResource("6_8xurw")]
-transform = Transform3D(145.91577, 0, -34.76473, 0, 149.99998, 0, 34.76473, 0, 145.91577, 77.090706, 0, 418.98212)
-
-[node name="games_launcher" type="MeshInstance3D" parent="home" unique_id=128568275]
-
-[node name="games_launcher_model" parent="home/games_launcher" unique_id=651340213 instance=ExtResource("5_n8ovw")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 281.51447)
-
-[node name="system_settings" type="MeshInstance3D" parent="home" unique_id=2094589781]
-
-[node name="system_settings_model" parent="home/system_settings" unique_id=1353434944 instance=ExtResource("7_nwmoi")]
-transform = Transform3D(1.1505656, 0, -74.99117, 0, 75, 0, 74.99117, 0, 1.1505656, -406.1859, 0, -89.24689)
-
-[node name="video_settings" type="MeshInstance3D" parent="home" unique_id=1108264036]
-
-[node name="video_settings_model" parent="home/video_settings" unique_id=1835523346 instance=ExtResource("4_8xurw")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 150.78539, 375.67487)
-
-[node name="sword" type="MeshInstance3D" parent="home" unique_id=956951331]
-
-[node name="sword_model" parent="home/sword" unique_id=38246256 instance=ExtResource("7_n8ovw")]
-transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -361.28967, 246.703, 508.9385)
-
-[node name="rug" type="MeshInstance3D" parent="home" unique_id=1345806889]
-transform = Transform3D(255.02585, 0, -22.311869, 0, 256, 0, 22.311869, 0, 255.02585, 0, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_ace7m")
-mesh = SubResource("PlaneMesh_trs84")
 
 [node name="yard" type="Node3D" parent="." unique_id=1177740335]
