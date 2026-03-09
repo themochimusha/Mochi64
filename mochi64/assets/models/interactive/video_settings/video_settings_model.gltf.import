@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dxdvmd5dsy8qw"
-path="res://.godot/imported/system_settings_model.gltf-7f0c3b15cac6251130173e273ea06b3c.scn"
+uid="uid://dyy8n3n2lv1tr"
+path="res://.godot/imported/video_settings_model.gltf-68012c29ee705f9dcab1a6b5c4ec2367.scn"
 
 [deps]
 
-source_file="res://assets/models/interactive/system_settings_model.gltf"
-dest_files=["res://.godot/imported/system_settings_model.gltf-7f0c3b15cac6251130173e273ea06b3c.scn"]
+source_file="res://assets/models/interactive/video_settings/video_settings_model.gltf"
+dest_files=["res://.godot/imported/video_settings_model.gltf-68012c29ee705f9dcab1a6b5c4ec2367.scn"]
 
 [params]
 

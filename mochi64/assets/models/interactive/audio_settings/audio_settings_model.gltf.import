@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://elbfuaip401p"
-path="res://.godot/imported/games_launcher_model.gltf-a520e2c18e02acdf0054118c1813d2dd.scn"
+uid="uid://c8o2g1swaiqm5"
+path="res://.godot/imported/audio_settings_model.gltf-3038011d0270398fe38e4bc0ee3e607f.scn"
 
 [deps]
 
-source_file="res://assets/models/interactive/games_launcher_model.gltf"
-dest_files=["res://.godot/imported/games_launcher_model.gltf-a520e2c18e02acdf0054118c1813d2dd.scn"]
+source_file="res://assets/models/interactive/audio_settings/audio_settings_model.gltf"
+dest_files=["res://.godot/imported/audio_settings_model.gltf-3038011d0270398fe38e4bc0ee3e607f.scn"]
 
 [params]
 
