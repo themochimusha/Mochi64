@@ -1,7 +1,5 @@
 [gd_scene format=3 uid="uid://b8sj5v322p5q0"]
 
-[ext_resource type="Texture2D" uid="uid://c5orbtn81kqii" path="res://assets/textures/home/home_wall_00.png" id="2_6eldl"]
-[ext_resource type="Texture2D" uid="uid://c5sk852lmkout" path="res://assets/textures/home/home_floor_03.png" id="2_nwmoi"]
 [ext_resource type="Script" uid="uid://b7c7kn1lkhrly" path="res://scripts/Player.cs" id="8_nwmoi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nwmoi"]
@@ -17,29 +15,7 @@ sky = SubResource("Sky_ace7m")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trs84"]
-albedo_texture = ExtResource("2_nwmoi")
-uv1_scale = Vector3(10, 3, 8)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ace7m"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1qs5"]
-albedo_texture = ExtResource("2_6eldl")
-uv1_scale = Vector3(1.5, 1, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_h1qs5"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0is01"]
-albedo_texture = ExtResource("2_6eldl")
-uv1_scale = Vector3(1.5, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c2sye"]
-albedo_texture = ExtResource("2_6eldl")
-uv1_scale = Vector3(1.5, 1, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgunc"]
-albedo_texture = ExtResource("2_6eldl")
-uv1_scale = Vector3(1.5, 1, 1)
+[sub_resource type="PlaneMesh" id="PlaneMesh_l10or"]
 
 [node name="hub" type="Node3D" unique_id=683311448]
 
@@ -50,31 +26,6 @@ environment = SubResource("Environment_nwmoi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0.02784729, 250.09164, 0)
 script = ExtResource("8_nwmoi")
 
-[node name="home" type="Node3D" parent="." unique_id=506681951]
-
-[node name="floor" type="MeshInstance3D" parent="home" unique_id=1700672530]
-transform = Transform3D(512, 0, 0, 0, 1, 0, 0, 0, 512, 2.5480347, 0, 0.037979126)
-material_override = SubResource("StandardMaterial3D_trs84")
-mesh = SubResource("PlaneMesh_ace7m")
-
-[node name="wall_w" type="MeshInstance3D" parent="home" unique_id=1072163913]
-transform = Transform3D(-2.238023e-05, 1, 0, 2.238023e-05, 1.9106855e-15, -256, -512, -4.371139e-08, -1.1190115e-05, -509.193, 256, 0.078)
-material_override = SubResource("StandardMaterial3D_h1qs5")
-mesh = SubResource("PlaneMesh_h1qs5")
-
-[node name="wall_n" type="MeshInstance3D" parent="home" unique_id=1685170892]
-transform = Transform3D(512, 0, 0, 0, -4.371139e-08, -256, 0, 1, -1.1190115e-05, 0, 256, -512)
-material_override = SubResource("StandardMaterial3D_0is01")
-mesh = SubResource("PlaneMesh_h1qs5")
-
-[node name="wall_e" type="MeshInstance3D" parent="home" unique_id=1632325214]
-transform = Transform3D(-2.238023e-05, -1, 1.1190115e-05, 0, -4.371139e-08, -256, 512, -4.371139e-08, 4.891355e-13, 512, 256, 0)
-material_override = SubResource("StandardMaterial3D_c2sye")
-mesh = SubResource("PlaneMesh_h1qs5")
-
-[node name="wall_s" type="MeshInstance3D" parent="home" unique_id=371800974]
-transform = Transform3D(-512, 8.742278e-08, 0, 1.956542e-12, 4.371139e-08, -256, -4.476046e-05, -1, -1.1190115e-05, 0, 256, 512)
-material_override = SubResource("StandardMaterial3D_vgunc")
-mesh = SubResource("PlaneMesh_h1qs5")
-
-[node name="yard" type="Node3D" parent="." unique_id=1177740335]
+[node name="floor" type="MeshInstance3D" parent="." unique_id=453292990]
+transform = Transform3D(512, 0, 0, 0, 512, 0, 0, 0, 512, 0, -0.5, 0)
+mesh = SubResource("PlaneMesh_l10or")
