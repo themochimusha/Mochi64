@@ -1,15 +1,86 @@
 [gd_scene format=3 uid="uid://byc4tm83f2en8"]
 
+[ext_resource type="Script" uid="uid://bqg6r665fpvry" path="res://scripts/Player.cs" id="1_wmait"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m7mc4"]
+sky_top_color = Color(0.12692207, 0.4601609, 0.6788342, 1)
+sky_horizon_color = Color(0.84928906, 0.89398134, 0.893404, 1)
+ground_bottom_color = Color(0.5489491, 0.39447927, 0.17349687, 1)
+ground_horizon_color = Color(0.84928906, 0.89398134, 0.893404, 1)
+
+[sub_resource type="Sky" id="Sky_wmait"]
+sky_material = SubResource("ProceduralSkyMaterial_m7mc4")
+
+[sub_resource type="Environment" id="Environment_gy3rj"]
+background_mode = 2
+sky = SubResource("Sky_wmait")
+tonemap_mode = 2
+glow_enabled = true
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_m7mc4"]
+size = Vector2(128, 128)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m7mc4"]
+data = PackedVector3Array(64, 0, 64, -64, 0, 64, 64, 0, -64, -64, 0, 64, -64, 0, -64, 64, 0, -64)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_wmait"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gy3rj"]
+points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wmait"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gy3rj"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
 [node name="mainhub" type="Node3D" unique_id=2086565529]
 
-[node name="ground" type="MeshInstance3D" parent="." unique_id=279442249]
-transform = Transform3D(512, 0, 0, 0, 512, 0, 0, 0, 512, 0, 0, 0)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1758391896]
+environment = SubResource("Environment_gy3rj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1859312751]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="ground" type="MeshInstance3D" parent="." unique_id=1689200087]
 mesh = SubResource("PlaneMesh_m7mc4")
 
-[node name="player" type="MeshInstance3D" parent="." unique_id=889424700]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0017833, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="ground" unique_id=343151183]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ground/StaticBody3D" unique_id=1357032916]
+shape = SubResource("ConcavePolygonShape3D_m7mc4")
+
+[node name="player" type="CharacterBody3D" parent="." unique_id=213759775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9790876, 0)
+script = ExtResource("1_wmait")
+
+[node name="mesh" type="MeshInstance3D" parent="player" unique_id=1370358043]
 mesh = SubResource("CapsuleMesh_wmait")
+
+[node name="collider" type="CollisionShape3D" parent="player" unique_id=1498919175]
+shape = SubResource("ConvexPolygonShape3D_gy3rj")
+
+[node name="neck" type="Node3D" parent="player" unique_id=614198315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70968354, 0)
+
+[node name="pivot" type="Node3D" parent="player/neck" unique_id=1689706315]
+
+[node name="camera" type="Camera3D" parent="player/neck/pivot" unique_id=1104939278]
+
+[node name="refObj" type="MeshInstance3D" parent="." unique_id=366920653]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0200295, 0.88042796, 13.976292)
+mesh = SubResource("BoxMesh_wmait")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="refObj" unique_id=1351792596]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="refObj/StaticBody3D" unique_id=1435274298]
+shape = SubResource("ConcavePolygonShape3D_gy3rj")
+
+[node name="refObj2" type="MeshInstance3D" parent="." unique_id=935458200]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.5282927, 1.080428, -26.44815)
+mesh = SubResource("BoxMesh_wmait")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="refObj2" unique_id=1296719036]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="refObj2/StaticBody3D" unique_id=748408754]
+shape = SubResource("ConcavePolygonShape3D_gy3rj")
