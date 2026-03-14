@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://byc4tm83f2en8"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m7mc4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_wmait"]
+
+[node name="mainhub" type="Node3D" unique_id=2086565529]
+
+[node name="ground" type="MeshInstance3D" parent="." unique_id=279442249]
+transform = Transform3D(512, 0, 0, 0, 512, 0, 0, 0, 512, 0, 0, 0)
+mesh = SubResource("PlaneMesh_m7mc4")
+
+[node name="player" type="MeshInstance3D" parent="." unique_id=889424700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0017833, 0)
+mesh = SubResource("CapsuleMesh_wmait")
