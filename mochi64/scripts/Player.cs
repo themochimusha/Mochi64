@@ -5,7 +5,9 @@ using System;
 
 public partial class Player : CharacterBody3D
 {
-	public const float WalkSpeed = 5.0f;
+	private AnimationPlayer Anim;
+	
+	public const float WalkSpeed = 3.5f;
 	public const float SprintSpeed = 7.5f;
 	public const float CrouchSpeed = 2.5f;
 
@@ -21,7 +23,7 @@ public partial class Player : CharacterBody3D
 	public const float CameraLerpSpeed = 10f;
 
 	public const float LeanAngle = 10f;
-	public const float LeanOffset = 0.3f;
+	public const float LeanOffset = 1.0f;
 	public const float LeanSpeed = 8f;
 
 	public const float HeadBobFrequency = 10f;
@@ -41,6 +43,7 @@ public partial class Player : CharacterBody3D
 
 	public override void _Ready()
 	{
+		Anim = GetNode<AnimationPlayer>("model/AnimationPlayer");
 		Neck = GetNode<Node3D>("neck");
 		Pivot = GetNode<Node3D>("neck/pivot");
 
@@ -52,7 +55,7 @@ public partial class Player : CharacterBody3D
 	}
 
 	public override void _Input(InputEvent @event)
-	{d
+	{
 		if (@event is InputEventMouseMotion motion)
 		{
 			RotateY(-motion.Relative.X * MouseSensitivity);
@@ -81,14 +84,20 @@ public partial class Player : CharacterBody3D
 
 		// Jump
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor() && !isCrouching)
+		{	
+			if (Anim.CurrentAnimation != "male_jumping") 
+			{
+				Anim.Play("male_jumping");
+			}
+			
 			velocity.Y = JumpVelocity;
-
+		}	
+		// Crouch
 		HandleCrouch();
-		float currentSpeed = HandleSprint();
-
+		float currentSpeed = HandleSpeed();
+		
 		// Movement input
 		Vector2 inputDir = Input.GetVector("left", "right", "forward", "backward");
-
 		Vector3 forward = Transform.Basis.Z;
 		Vector3 right = Transform.Basis.X;
 
@@ -104,6 +113,28 @@ public partial class Player : CharacterBody3D
 
 		if (direction != Vector3.Zero)
 		{
+			if (currentSpeed == SprintSpeed)
+			{
+				if (Anim.CurrentAnimation != "male_running")
+				{
+					Anim.Play("male_running");
+				}
+			}
+			else if (currentSpeed == CrouchSpeed) 
+			{
+				if (Anim.CurrentAnimation != "male_sneaking")
+				{
+					Anim.Play("male_sneaking");
+				}
+			}
+			else 
+			{
+				if (Anim.CurrentAnimation != "male_walking")
+				{
+					Anim.Play("male_walking");
+				}
+			}
+			
 			Vector3 targetVelocity = direction * currentSpeed;
 
 			velocity.X = Mathf.MoveToward(velocity.X, targetVelocity.X, control * dt);
@@ -111,10 +142,26 @@ public partial class Player : CharacterBody3D
 		}
 		else if (IsOnFloor())
 		{
+			if (isCrouching)
+			{
+				if (Anim.CurrentAnimation != "male_crouching")
+				{
+					Anim.Play("male_crouching");
+				}
+			}
+			else 
+			{
+				if (Anim.CurrentAnimation != "male_idle")
+				{
+					Anim.Play("male_idle");
+				}
+			}
+				
+			
 			velocity.X = Mathf.MoveToward(velocity.X, 0, Friction * dt);
 			velocity.Z = Mathf.MoveToward(velocity.Z, 0, Friction * dt);
 		}
-
+		
 		Velocity = velocity;
 		MoveAndSlide();
 
@@ -125,7 +172,12 @@ public partial class Player : CharacterBody3D
 
 	private void HandleCrouch()
 	{
-		if (ToggleCrouch)
+		
+		if (!IsOnFloor()) 
+		{
+			isCrouching = false;
+		}
+		else if (ToggleCrouch)
 		{
 			if (Input.IsActionJustPressed("crouch"))
 				isCrouching = !isCrouching;
@@ -136,7 +188,7 @@ public partial class Player : CharacterBody3D
 		}
 	}
 
-	private float HandleSprint()
+	private float HandleSpeed()
 	{
 		if (isCrouching)
 			return CrouchSpeed;

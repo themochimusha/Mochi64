@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://byc4tm83f2en8"]
 
 [ext_resource type="Script" uid="uid://bqg6r665fpvry" path="res://scripts/Player.cs" id="1_wmait"]
+[ext_resource type="PackedScene" uid="uid://cq20lvpmx4udj" path="res://player/player_anim_model.glb" id="2_ppp14"]
+[ext_resource type="Texture2D" uid="uid://c3xawe7w536xc" path="res://player_model_base.png" id="2_wc1w7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m7mc4"]
 sky_top_color = Color(0.12692207, 0.4601609, 0.6788342, 1)
@@ -23,10 +25,11 @@ size = Vector2(128, 128)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m7mc4"]
 data = PackedVector3Array(64, 0, 64, -64, 0, 64, 64, 0, -64, -64, 0, 64, -64, 0, -64, 64, 0, -64)
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wmait"]
-
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gy3rj"]
 points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwhi"]
+albedo_texture = ExtResource("2_wc1w7")
 
 [sub_resource type="BoxMesh" id="BoxMesh_wmait"]
 
@@ -54,9 +57,6 @@ shape = SubResource("ConcavePolygonShape3D_m7mc4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9790876, 0)
 script = ExtResource("1_wmait")
 
-[node name="mesh" type="MeshInstance3D" parent="player" unique_id=1370358043]
-mesh = SubResource("CapsuleMesh_wmait")
-
 [node name="collider" type="CollisionShape3D" parent="player" unique_id=1498919175]
 shape = SubResource("ConvexPolygonShape3D_gy3rj")
 
@@ -66,21 +66,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70968354, 0)
 [node name="pivot" type="Node3D" parent="player/neck" unique_id=1689706315]
 
 [node name="camera" type="Camera3D" parent="player/neck/pivot" unique_id=1104939278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1.5)
 
-[node name="refObj" type="MeshInstance3D" parent="." unique_id=366920653]
+[node name="model" parent="player" unique_id=1801903573 instance=ExtResource("2_ppp14")]
+transform = Transform3D(-200, 0, -1.7484555e-05, 0, 200, 0, 1.7484555e-05, 0, -200, 0, -1, 0)
+
+[node name="Skeleton3D" parent="player/model/Armature_005" parent_id_path=PackedInt32Array(1801903573, 407245888) index="0" unique_id=1439743424]
+bones/0/position = Vector3(3.46523e-05, -0.0014392454, -0.46601337)
+bones/0/rotation = Quaternion(-0.6947931, 0.017712763, -0.005708381, 0.71896887)
+bones/1/rotation = Quaternion(0.057300545, -0.0115267085, -0.009763787, 0.9982427)
+bones/2/rotation = Quaternion(0.021565767, -0.021265864, 0.01044217, 0.9994867)
+bones/3/rotation = Quaternion(0.021317381, -0.020891357, 0.011409696, 0.99948937)
+bones/4/rotation = Quaternion(-0.0077943546, 0.018562786, -0.0022161414, 0.9997949)
+bones/5/rotation = Quaternion(-0.028483039, 0.039053775, -0.017458748, 0.99867857)
+bones/7/rotation = Quaternion(-0.6067638, -0.39529794, 0.54706186, -0.41988176)
+bones/8/rotation = Quaternion(0.32384536, 0.17684083, 0.22013251, 0.9029913)
+bones/9/rotation = Quaternion(-0.0058075427, -0.024221256, 0.06900428, 0.9973054)
+bones/10/rotation = Quaternion(0.09421781, 0.034636438, -0.022905998, 0.9946852)
+bones/11/rotation = Quaternion(0.13004193, -0.034670167, 0.011222733, 0.99083865)
+bones/12/rotation = Quaternion(0.13120018, -9.395488e-10, -0.014858737, 0.99124455)
+bones/13/rotation = Quaternion(0.13120043, -7.351969e-08, -0.014858848, 0.9912445)
+bones/15/rotation = Quaternion(0.5955925, -0.39971477, 0.56922203, 0.40185064)
+bones/16/rotation = Quaternion(0.2518902, -0.112148136, -0.25821662, 0.9259041)
+bones/17/rotation = Quaternion(-0.0059778076, 0.05078566, -0.18193728, 0.98197967)
+bones/18/rotation = Quaternion(0.058200385, 0.0106123695, -0.012264457, 0.99817324)
+bones/19/rotation = Quaternion(0.22376077, 0.019440731, -0.1029259, 0.96899927)
+bones/20/rotation = Quaternion(0.20568275, 8.209269e-09, 0.016097944, 0.9784863)
+bones/21/rotation = Quaternion(0.09134369, -6.254528e-08, 0.0071489816, 0.99579376)
+bones/23/rotation = Quaternion(0.0902311, 0.23534064, 0.96760356, -0.01471297)
+bones/24/rotation = Quaternion(-0.5057127, 0.03426201, -0.030417452, 0.8614845)
+bones/25/rotation = Quaternion(0.4813447, -0.020029638, -0.0037096073, 0.8762946)
+bones/26/rotation = Quaternion(0.45968056, 0.056383938, 0.0046172524, 0.8862806)
+bones/28/rotation = Quaternion(-0.062232357, 0.07717782, 0.995001, -0.0119883)
+bones/29/rotation = Quaternion(-0.1427582, -0.029614544, -0.022579165, 0.98905677)
+bones/30/rotation = Quaternion(0.5350067, 0.014064862, -0.0037613055, 0.84472233)
+bones/31/rotation = Quaternion(0.35027915, -0.02236734, 0.007203767, 0.9363506)
+
+[node name="head" parent="player/model/Armature_005/Skeleton3D" index="0" unique_id=1899910464]
+material_override = SubResource("StandardMaterial3D_0rwhi")
+
+[node name="cube" type="MeshInstance3D" parent="." unique_id=366920653]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.0200295, 0.88042796, 13.976292)
 mesh = SubResource("BoxMesh_wmait")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="refObj" unique_id=1351792596]
+[node name="StaticBody3D" type="StaticBody3D" parent="cube" unique_id=1351792596]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="refObj/StaticBody3D" unique_id=1435274298]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube/StaticBody3D" unique_id=1435274298]
 shape = SubResource("ConcavePolygonShape3D_gy3rj")
 
-[node name="refObj2" type="MeshInstance3D" parent="." unique_id=935458200]
+[node name="cube2" type="MeshInstance3D" parent="." unique_id=935458200]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.5282927, 1.080428, -26.44815)
 mesh = SubResource("BoxMesh_wmait")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="refObj2" unique_id=1296719036]
+[node name="StaticBody3D" type="StaticBody3D" parent="cube2" unique_id=1296719036]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="refObj2/StaticBody3D" unique_id=748408754]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="cube2/StaticBody3D" unique_id=748408754]
 shape = SubResource("ConcavePolygonShape3D_gy3rj")
+
+[editable path="player/model"]
