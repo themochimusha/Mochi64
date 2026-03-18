@@ -19,15 +19,15 @@ public partial class Player : CharacterBody3D
 
 	public const float MouseSensitivity = 0.0025f;
 
-	public const float CrouchHeightOffset = -0.6f;
+	public const float CrouchHeightOffset = -0.3f;
 	public const float CameraLerpSpeed = 10f;
 
 	public const float LeanAngle = 10f;
 	public const float LeanOffset = 1.0f;
 	public const float LeanSpeed = 8f;
 
-	public const float HeadBobFrequency = 10f;
-	public const float HeadBobAmplitude = 0.05f;
+	public const float HeadBobFrequency = 15f;
+	public const float HeadBobAmplitude = 0.025f;
 
 	public bool ToggleCrouch = false;
 
@@ -113,27 +113,36 @@ public partial class Player : CharacterBody3D
 
 		if (direction != Vector3.Zero)
 		{
-			if (currentSpeed == SprintSpeed)
+			if (!IsOnFloor())
 			{
-				if (Anim.CurrentAnimation != "male_running")
+				if (Anim.CurrentAnimation != "t-pose")
+					Anim.Play("t-pose");
+			}
+			else
+			{
+				if (currentSpeed == SprintSpeed)
 				{
-					Anim.Play("male_running");
+					if (Anim.CurrentAnimation != "male_running")
+					{
+						Anim.Play("male_running");
+					}
+				}
+				else if (currentSpeed == CrouchSpeed) 
+				{
+					if (Anim.CurrentAnimation != "male_sneaking")
+					{
+						Anim.Play("male_sneaking");
+					}
+				}
+				else 
+				{
+					if (Anim.CurrentAnimation != "male_walking")
+					{
+						Anim.Play("male_walking");
+					}
 				}
 			}
-			else if (currentSpeed == CrouchSpeed) 
-			{
-				if (Anim.CurrentAnimation != "male_sneaking")
-				{
-					Anim.Play("male_sneaking");
-				}
-			}
-			else 
-			{
-				if (Anim.CurrentAnimation != "male_walking")
-				{
-					Anim.Play("male_walking");
-				}
-			}
+			
 			
 			Vector3 targetVelocity = direction * currentSpeed;
 
