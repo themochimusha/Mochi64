@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://byc4tm83f2en8"]
 
-[ext_resource type="Script" uid="uid://bfxesxphqpht7" path="res://scripts/Inputs.cs" id="1_ppp14"]
-[ext_resource type="Script" uid="uid://bqg6r665fpvry" path="res://scripts/Player.cs" id="1_wmait"]
-[ext_resource type="PackedScene" uid="uid://cq20lvpmx4udj" path="res://player/player_anim_model.glb" id="2_ppp14"]
-[ext_resource type="Texture2D" uid="uid://c3xawe7w536xc" path="res://player_model_base.png" id="2_wc1w7"]
+[ext_resource type="Script" uid="uid://bfxesxphqpht7" path="res://scripts/Inputs.cs" id="1_sxb1p"]
+[ext_resource type="Script" uid="uid://bqg6r665fpvry" path="res://scripts/Player.cs" id="2_qh5at"]
+[ext_resource type="PackedScene" uid="uid://cq20lvpmx4udj" path="res://models/player/player_anim_model.glb" id="3_5qhk1"]
+[ext_resource type="Texture2D" uid="uid://c3xawe7w536xc" path="res://models/player/player_model_base.png" id="4_2w6i4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m7mc4"]
 sky_top_color = Color(0.12692207, 0.4601609, 0.6788342, 1)
@@ -30,7 +30,7 @@ data = PackedVector3Array(64, 0, 64, -64, 0, 64, 64, 0, -64, -64, 0, 64, -64, 0,
 points = PackedVector3Array(-0.12520654, -0.532801, -0.4805069, 0.022783129, 0.4760704, 0.49888408, 0.16971254, 0.5591441, 0.46417162, 0.23105091, -0.8035912, 0.32045516, 0.40741014, 0.651043, -0.24352328, -0.4827893, 0.59484255, 0.082213186, -0.3628679, -0.68231165, 0.2896967, 0.46904355, -0.65452886, -0.06627126, -0.12744367, 0.8427015, -0.33810276, -0.39343542, -0.6839421, -0.24471663, 0.43825462, 0.62330925, 0.20084947, 0.0841477, 0.977454, 0.11479468, -0.06820232, -0.9764576, -0.12927033, 0.20054972, -0.56312895, -0.4514544, -0.18552664, 0.59545326, -0.4534751, -0.27336287, 0.59226835, 0.40775412, -0.0069364863, -0.47682306, 0.49966025, 0.37582088, -0.5886136, 0.31695515, 0.111579016, 0.5630594, -0.48117727, -0.41725034, 0.5278656, -0.27049688, -0.48454633, -0.59697217, -0.06650971, -0.27974695, 0.90856135, 0.05333608, -0.25019687, -0.8807117, 0.20531891, 0.263647, -0.90277094, -0.1273943, 0.29336792, 0.8715263, -0.15719566, 0.3734115, -0.5263189, -0.32824618, 0.4996626, 0.47664148, -0.0068885577, 0.053105574, 0.8750009, 0.32470253, -0.15454252, -0.5908538, 0.4658794, -0.09727988, -0.7823577, -0.39818847, -0.3876489, -0.49817133, 0.31564978, -0.30067965, -0.58799505, -0.38890144)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0rwhi"]
-albedo_texture = ExtResource("2_wc1w7")
+albedo_texture = ExtResource("4_2w6i4")
 
 [sub_resource type="BoxMesh" id="BoxMesh_wmait"]
 
@@ -43,7 +43,7 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9790876, 0)
 
 [node name="inputs" type="Node3D" parent="global" unique_id=740653063]
-script = ExtResource("1_ppp14")
+script = ExtResource("1_sxb1p")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1758391896]
 environment = SubResource("Environment_gy3rj")
@@ -62,7 +62,7 @@ shape = SubResource("ConcavePolygonShape3D_m7mc4")
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=213759775]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9790876, 0)
-script = ExtResource("1_wmait")
+script = ExtResource("2_qh5at")
 
 [node name="collider" type="CollisionShape3D" parent="player" unique_id=1498919175]
 shape = SubResource("ConvexPolygonShape3D_gy3rj")
@@ -75,41 +75,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70968354, 0)
 [node name="camera" type="Camera3D" parent="player/neck/pivot" unique_id=1104939278]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.75, 0.75)
 
-[node name="model" parent="player" unique_id=1801903573 instance=ExtResource("2_ppp14")]
+[node name="model" parent="player" unique_id=1599712624 instance=ExtResource("3_5qhk1")]
 transform = Transform3D(-100, 0, -1.509958e-05, 0, 100, 0, 1.509958e-05, 0, -100, 0, -1, 0)
 
-[node name="Skeleton3D" parent="player/model/Armature_005" parent_id_path=PackedInt32Array(1801903573, 407245888) index="0" unique_id=1439743424]
-bones/0/position = Vector3(-0.0038245977, 0.0016874808, -0.25782362)
-bones/0/rotation = Quaternion(-0.6287559, -0.32345775, 0.26079068, 0.6572894)
-bones/1/rotation = Quaternion(0.14951958, 0.019825066, -0.01993833, 0.988359)
-bones/2/rotation = Quaternion(0.1529104, 0.044829957, -0.041969243, 0.9863302)
-bones/3/rotation = Quaternion(0.050298687, 0.048936356, -0.03709921, 0.99684453)
-bones/4/rotation = Quaternion(-0.17426501, 0.0976518, 0.08758583, 0.9759224)
-bones/5/rotation = Quaternion(-0.08291058, 0.22017094, -0.068066455, 0.96954507)
-bones/7/rotation = Quaternion(-0.5981257, -0.40285045, 0.48303694, -0.49662113)
-bones/8/rotation = Quaternion(0.29875252, -0.23239903, -0.0888018, 0.92133164)
-bones/9/rotation = Quaternion(0.034912236, -0.22797994, 0.4548802, 0.8601688)
-bones/10/rotation = Quaternion(-0.057545897, 0.018410418, 0.015620673, 0.9980509)
-bones/11/rotation = Quaternion(-0.020561116, -0.014349318, 0.027816022, 0.9992986)
-bones/12/rotation = Quaternion(0.040168338, 0.0010513158, 0.0013677321, 0.99919146)
-bones/13/rotation = Quaternion(0.06603672, 0.00032727563, 0.0032233924, 0.997812)
-bones/15/rotation = Quaternion(0.6144853, -0.35257873, 0.42445576, 0.5638558)
-bones/16/rotation = Quaternion(0.35126156, 0.08763322, 0.26438412, 0.8938886)
-bones/17/rotation = Quaternion(0.08291707, 0.14101113, -0.37462944, 0.91263)
-bones/18/rotation = Quaternion(0.06888815, 0.015079528, -0.30099514, 0.9510147)
-bones/19/rotation = Quaternion(0.35385647, -0.086072974, -0.12554008, 0.9228309)
-bones/20/rotation = Quaternion(0.5655218, -0.023888651, -0.02676638, 0.8239527)
-bones/21/rotation = Quaternion(0.5163501, -0.015089901, -0.023699759, 0.85591656)
-bones/23/rotation = Quaternion(0.20112832, 0.6198696, 0.6153083, -0.44351426)
-bones/24/rotation = Quaternion(-0.7701966, 0.18170324, -0.18444194, 0.5828913)
-bones/25/rotation = Quaternion(0.5718804, -0.07577315, -0.07563897, 0.81332046)
-bones/26/rotation = Quaternion(0.3228834, 0.04898297, -0.055554666, 0.9435362)
-bones/28/rotation = Quaternion(0.029813644, 0.30271283, 0.9174704, 0.25636736)
-bones/29/rotation = Quaternion(-0.7999166, -0.10818148, 0.03802055, 0.589054)
-bones/30/rotation = Quaternion(0.85265636, 0.105113715, 0.2549497, 0.44376692)
-bones/31/rotation = Quaternion(0.30459502, -0.018962562, 0.036178358, 0.95160574)
-
-[node name="head" parent="player/model/Armature_005/Skeleton3D" index="0" unique_id=1899910464]
+[node name="head" parent="player/model/Armature_005/Skeleton3D" parent_id_path=PackedInt32Array(1599712624, 531857584) index="0" unique_id=1390053939]
 material_override = SubResource("StandardMaterial3D_0rwhi")
 
 [node name="cube2" type="MeshInstance3D" parent="." unique_id=935458200]
